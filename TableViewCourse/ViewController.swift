@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController , UITableViewDataSource{
     
+    let myTitle: [String] = ["Fruites","Color of fruites"]
     
     let myFruit :[[String]] = [["apple","watermelon","pineapple","melon","banana","orang","carrot"],
                                ["Green","Yellow"    ,"Golddn"   ,"Grayg","GYellow","orange","Oragnyell"]
@@ -30,6 +31,11 @@ class ViewController: UIViewController , UITableViewDataSource{
         myCell.textLabel?.text = myFruit[indexPath.section][indexPath.row]
         return myCell
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return myTitle[section]
+    }
+    
     
 
     override func viewDidLoad() {
