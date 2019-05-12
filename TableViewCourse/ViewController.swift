@@ -12,10 +12,11 @@ class ViewController: UIViewController , UITableViewDataSource{
     
     let myTitle: [String] = ["Fruites","Color of fruites"]
     
-    let myFruit :[[String]] = [["apple","watermelon","pineapple","melon","banana","orang","carrot"],
+    let myFruit :[[String]] = [["apple","watermelon","pineapple","melon","banana","orange","carrot"],
                                ["Green","Yellow"    ,"Golddn"   ,"Grayg","GYellow","orange","Oragnyell"]
                                ]
     
+    let myImages: [String] = ["apple","watermelon","pineapple","melon","banana","orange","carrot"]
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return myFruit.count
@@ -29,6 +30,7 @@ class ViewController: UIViewController , UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         myCell.textLabel?.text = myFruit[indexPath.section][indexPath.row]
+        myCell.imageView?.image = UIImage(named: (myImages[indexPath.row] + ".png"))
         return myCell
     }
     
@@ -36,13 +38,10 @@ class ViewController: UIViewController , UITableViewDataSource{
         return myTitle[section]
     }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
 
 }
 
